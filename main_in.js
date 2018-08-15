@@ -1,6 +1,12 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    window.location.replace("event.html");
+      var user = firebase.auth().currentUser;
+
+      if(user.email === "manager@patagonia.com") {
+        window.location.replace("sample.html");
+      } else {
+         window.location.replace("event.html");
+      }
   } else {
     console.log("invalid login");
   }
@@ -12,9 +18,7 @@ function submitForm(e){
 
   var userEmail = document.getElementById("email").value;
   var userPass = document.getElementById("password").value;
-  if(userPass === "test1234") {
-        window.location.replace("sample.html");
-  } else {
+
     firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -24,7 +28,6 @@ function submitForm(e){
 
     // ...
   });
-  }
   
 }
 

@@ -25,7 +25,7 @@ function submitForm(e){
   var password = getInputVal('password');
 
   // Save message
-  auth.createUserWithEmailAndPassword(email,password);  
+  auth.createUserWithEmailAndPassword(email,password); 
   saveMessage(fname, lname, company, email, password);
 
 }

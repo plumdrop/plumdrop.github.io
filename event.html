@@ -18,7 +18,11 @@
 <div class="wrap">
 <div class="grids">
 <div class="content">
-<img id="company_image" src="images/Screen%20Shot%202018-08-04%20at%207.28.05%20PM.png" width = 60%></div>
+<div>
+    <img id="plumdrop_image" src="images/Screen%20Shot%202018-08-04%20at%207.28.05%20PM.png" width = 60%></div>
+    <img id="company_image" src="images/IBM.png" width = 15%></div>        
+</div>
+
     
     <div class="content-left">
         <div class="subscribe">
@@ -26,7 +30,7 @@
             <form id ="form1" action="#" method="post">
                 <input type="text" name="company" placeholder="Company Name" required="" id = "company">
                 <input type="number" name="numEmps" placeholder="Number of Employees" required="" id = "numEmp">
-                <input type="text" name="address" placeholder="Company Address" required="" id = "address">
+                <input type="text" name="address" placeholder="Location" required="" id = "address">
                 <input type="tel" name="phone" placeholder="Phone Number" required="" id = "phone">
                 <input type="email" name="email" placeholder="Email" required="" id = "email">
             </form>
@@ -38,29 +42,22 @@
                 <input type="text" name="name" placeholder="Event Name" required="" id = "eventName">
                 <input type="number" name="numClients" placeholder="Number of Clients" required="" id = "numClients">
                 <h2>Activities:</h2>
-                <h3>Land</h3>
                 <select>    
                     <option value="Hiking">Hiking</option>
                     <option value="Obstacle Course Racing">Obstacle Course Racing</option>
                     <option value="Mountain Biking">Mountain Biking</option>
                     <option value="Backpacking">Backpacking</option>
-                    <option value="Camping">Camping</option>
-                </select>
-                <h3>Snow</h3>
-                <select>    
+                    <option value="Camping">Camping</option>  
                     <option value="Skiing">Skiing</option>
-                    <option value="Snowboading">Snowboading</option>
-                </select>
-                <h3>Water</h3>
-                <select>    
+                    <option value="Snowboading">Snowboading</option>  
                     <option value="Kayaking/Canoeing">Kayaking/Canoeing</option>
                     <option value="Scuba/Snorkeling">Scuba/Snorkeling</option>
                     <option value="Surfing">Surfing</option>
                     <option value="Stand-up Paddlle Boarding">Stand-up Paddlle Boarding</option>
                 </select>
-                <button onclick="createEvent()">submit</button>
             </form>
             <div>
+                <button onclick="eventPageRedirect()">Submit</button>
                 <button onclick="logOut()">LogOut</button>
             </div>
         </div>

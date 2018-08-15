@@ -86,6 +86,6 @@ function saveMessage(fname, lname, company, email, password){
     organizer:false,
     password:password,
   });
-  location.href = "signin.html";
+  location.href = "index.html";
 
 }

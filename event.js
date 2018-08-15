@@ -1,6 +1,6 @@
 function logOut(e) {
       firebase.auth().signOut();
-      window.location.replace("signin.html");
+      window.location.replace("index.html");
  }
 
 

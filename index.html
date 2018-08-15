@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Plumdrop Company Sign Up Page</title>
-<link href="main.css" rel="stylesheet" type="text/css" media="all"/>
+<title>Plumdrop Company Sign In Page</title>
+<link href="main2.css" rel="stylesheet" type="text/css" media="all"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
@@ -11,9 +11,25 @@
 <script src="jquery-1.11.1.min.js"></script>
 <script src="responsiveslides.js"></script>
 <link href="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"/>
+    <script>
+    $(function () {
+      $("#slider4").responsiveSlides({
+        auto: true,
+        pager:true,
+        nav:false,
+        speed: 400,
+        namespace: "callbacks",
+        before: function () {
+          $('.events').append("<li>before event fired.</li>");
+        },
+        after: function () {
+          $('.events').append("<li>after event fired.</li>");
+        }
+      });
+    });
+</script>
 </head>
 <body>
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 <div class="main">
 <div class="profile">
 <div class="wrap">
@@ -21,17 +37,21 @@
 <div class="content-left">
     <img id="company_image" src="images/Screen%20Shot%202018-08-04%20at%207.28.05%20PM.png" width = 100%>
     <div class="content-info">
-        <h2>About The Company</h2>
+        <h2>Customer Sign In</h2>
         <div class="slider">
             <div class="callbacks_container">
                 <ul class="rslides callbacks callbacks1" id="slider4">
                     <li><div class="banner-info">
-                            <h3>About Us Snippet #1</h3>
-                            <p>Monsoor: Provide a few lines about the company in general and what we provide to customers.</p>
-                        </div></li>
+                        <h3>Customer Review #1</h3>
+                        <p>"Plumdrop offers great products and my collegues and I thuroughly enjoyed the experience and would reccomend to others." VP of Sales</p>
+                    </div></li>
                     <li><div class="banner-info">
-                            <h3>About Us Snippet #2</h3>
-                            <p>Monsoor: Why would business partners come to this page? What does this offer to them? Why would they want to work with us?</p>
+                        <h3>Customer Review #2</h3>
+                        <p>"We love working with Plumdrop. Their dashboard offerings are top notch. We love this technology" VP Business Development </p>
+                    </div></li>
+                    <li><div class="banner-info">
+                        <h3>Customer Review #3</h3>
+                        <p>"This company knows what they are doing and we have had a great exeperience working with them. We are excited for continuous success." Director of Sales</p>
                     </div></li>
                 </ul>
             </div>
@@ -39,7 +59,7 @@
         </div>
     </div>
     <div class="agile-signin">
-        <h4>Already have an account <a href="signin.html">Sign In</a></h4>
+        <h4>Ready to create an account? <a href="index.html">Sign Up</a></h4>
     </div>
 <div class="banner-info">
     <p>Thank you for working with Plumdrop. Feel free to contact us with any questions or concerns!</p>
@@ -47,27 +67,33 @@
 </div>
     <div class="content-main">
         <div class="subscribe">
-            <h4>New Customer?</h4>
-            <form id="SignUp" action="#" method="post" name="SignUp">
-                <input type="text" name="Search" placeholder="First Name" required="" id = "fname">
-                <input type="text" name="Search" placeholder="Last Name" required="" id = "lname">
-                <input type="text" name="Search" placeholder="Company" required="" id = "company">
-                <input type="file" id="file" hidden="hidden">
-                <button type="button" id="file-button">Upload Company Logo</button>
-                <span id="button-text">No File Chosen</span>
+            <h4>Customer Sign In</h4>
+            <div action="#" method="post">
                 <input type="email" name="Search" placeholder="Email" required="" id = "email">
+                <input type="text" name="Search" placeholder="Company" required="" id = "company">
                 <input type="password" name="Password" placeholder="Password" required="" id = "password">
-                <input type="password" name="Password" placeholder="Confirm Password" required="">
-                <input type="submit" id= "submit" value="Sign Up" name = "submit"> 
-            </form>
+                <button onclick="submitForm()">Sign In</button>
+            </div>
         </div>
     </div>
-    <!-- <div class="clear"> </div> -->
+    <div class="clear"> </div>
 </div>
 </div>
 </div>
 </div>
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-  <script src="main.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyDnxO0uJ3uLnnuapAIzDEsAoEDpuhNXFUI",
+    authDomain: "plumdrop-business.firebaseapp.com",
+    databaseURL: "https://plumdrop-business.firebaseio.com",
+    projectId: "plumdrop-business",
+    storageBucket: "plumdrop-business.appspot.com",
+    messagingSenderId: "1014652124168"
+  };
+  firebase.initializeApp(config);
+  </script>
+  <script src="main_in.js"></script>
 </body>
 </html>

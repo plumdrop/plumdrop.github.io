@@ -1,3 +1,5 @@
+var company;
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
       var user = firebase.auth().currentUser;
@@ -18,7 +20,8 @@ function submitForm(e){
 
   var userEmail = document.getElementById("email").value;
   var userPass = document.getElementById("password").value;
-
+  company = document.getElementById("company").value;
+  company - company.toLowerCase();
     firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -33,6 +36,14 @@ function submitForm(e){
 
 function logOut(e) {
       firebase.auth().signOut();
+      window.location.replace("index.html");
  }
+
+
+ function eventPageRedirect(e) {
+    location.href = "https://www.plumdrop.co/"+company;
+ }
+
+ 
 
 

@@ -11,6 +11,7 @@
 
 // Reference messages collection
 var messagesRef = firebase.database().ref('Users');
+const auth = firebase.auth();
 
 // Listen for form submit
 document.getElementById('SignUp').addEventListener('submit', submitForm);
@@ -24,7 +25,7 @@ function submitForm(e){
   var password = getInputVal('password');
 
   // Save message
-  firebase.auth().createUserWithEmailAndPassword(email,password);  
+  auth.createUserWithEmailAndPassword(email,password);  
   saveMessage(fname, lname, company, email, password);
 
 }

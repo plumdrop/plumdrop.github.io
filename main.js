@@ -17,12 +17,6 @@ document.getElementById('SignUp').addEventListener('submit', submitForm);
 
 // Submit form
 function submitForm(e){
-  // e.preventDefault();
-  // var file = e.target.files[0];
-  // var storageRef = firebase.storage().ref();
-  // var uploadRef = storageRef.child("company_logos/" + file.name);
-  // console.log(file.name)
-  // uploadRef.put(file);
   var fname = getInputVal('fname').toLowerCase();
   var lname = getInputVal('lname').toLowerCase();
   var company = getInputVal('company').toLowerCase();
@@ -30,28 +24,11 @@ function submitForm(e){
   var password = getInputVal('password');
 
   // Save message
+  firebase.auth().createUserWithEmailAndPassword(email,password);  
   saveMessage(fname, lname, company, email, password);
-  auth = firebase.auth();
-  var promise = auth.createUserWithEmailAndPassword(email,password);
-  promise.catch(e => console.log(e.message));
-  
 
-  // Show alert
-  document.querySelector('.alert').style.display = 'block';
-
-  // Hide alert after 3 seconds
-  setTimeout(function(){
-    document.querySelector('.alert').style.display = 'none';
-  },3000);
-
-  // Clear form
-  document.getElementById('SignUp').reset();
 }
 
-// Form submission response
-document.getElementById("submit").onclick = function () {
-        location.href = "event.html";
-};
 
 $(function () {
       $("#slider4").responsiveSlides({
@@ -109,4 +86,6 @@ function saveMessage(fname, lname, company, email, password){
     organizer:false,
     password:password,
   });
+  location.href = "signin.html";
+
 }

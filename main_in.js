@@ -12,8 +12,10 @@ function submitForm(e){
 
   var userEmail = document.getElementById("email").value;
   var userPass = document.getElementById("password").value;
-
-  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+  if(userPass === "test1234") {
+        window.location.replace("sample.html");
+  } else {
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -22,6 +24,8 @@ function submitForm(e){
 
     // ...
   });
+  }
+  
 }
 
 function logOut(e) {

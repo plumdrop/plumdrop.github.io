@@ -6,44 +6,73 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <title>My Chart.js Chart</title>
+  <title>Patagonia</title>
 </head>
 <body>
   <div class="container">
     <canvas id="myChart"></canvas>
+    <canvas id="myChart2"></canvas>
+    <canvas id="polar-chart"></canvas>
   </div>
 
   <script>
-    let myChart = document.getElementById('myChart').getContext('2d');
 
-    // Global Options
+        // Global Options
     Chart.defaults.global.defaultFontFamily = 'Lato';
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.defaultFontColor = '#777';
+var ctx = document.getElementById('myChart2');
+
+var sku = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        label: '234857',
+        data: [67, 60, 62, 58, 54, 76, 43],
+        backgroundColor: '#D6E9C6',
+      },
+      {
+        label: '128472',
+        data: [20, 31, 24, 32, 14, 13, 15],
+        backgroundColor: '#FAEBCC',
+      },
+      {
+        label: '657294',
+        data: [11 , 13 , 19 , 25, 12, 18, 14],
+        backgroundColor: '#EBCCD1',
+      }
+    ],
+  },
+  options: {
+    title:{
+          display:true,
+          text:'SKU per month',
+          fontSize:25
+        },
+    scales: {
+      xAxes: [{ stacked: true }],
+      yAxes: [{ stacked: true }]
+    }
+  }
+});
+    let salesPercent = document.getElementById('myChart').getContext('2d');
 
     let massPopChart = new Chart(myChart, {
       type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
-        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        labels:['Rented%', 'Sold%'],
         datasets:[{
           label:'Population',
           data:[
-            617594,
-            181045,
-            153060,
-            106519,
-            105162,
-            95072
+            40,
+            60
           ],
           //backgroundColor:'green',
           backgroundColor:[
             'rgba(255, 99, 132, 0.6)',
             'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.6)'
           ],
           borderWidth:1,
           borderColor:'#777',
@@ -54,7 +83,7 @@
       options:{
         title:{
           display:true,
-          text:'Largest Cities In Massachusetts',
+          text:'Distribution of Sales',
           fontSize:25
         },
         legend:{
@@ -77,6 +106,27 @@
         }
       }
     });
+
+    new Chart(document.getElementById("polar-chart"), {
+    type: 'polarArea',
+    data: {
+      labels: ["California", "New York", "Illinois", "Colorado", "Washington", "Florida"],
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#c44320"],
+          data: [2478,5267,734,784,433,1230]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
+
   </script>
 </body>
 </html>

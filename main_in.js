@@ -21,7 +21,7 @@ function submitForm(e){
   var userEmail = document.getElementById("email").value;
   var userPass = document.getElementById("password").value;
   company = document.getElementById("company").value;
-  company - company.toLowerCase();
+  company = company.toLowerCase();
     firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;

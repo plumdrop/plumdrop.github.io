@@ -7,22 +7,39 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>Patagonia</title>
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <style>
+      canvas {
+      width: 20%;
+      height: 20%;
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div>
-        <canvas id="myChart"></canvas>
-        <canvas id="myChart2"></canvas>
-    </div>
-    <div>
-        <canvas id="polar-chart"></canvas>
-        <canvas id="line-chart"></canvas>
-    </div>
+<!-- 
+        <div class="subscribe">
+                <h4>Data:</h4>
+                <select id = "data">    
+                    <option value="myChart2">SKU per month</option>
+                    <option value="myChart">Distribution of Sales</option>
+                    <option value="polar-chart">Boxes Sold Per State</option>
+                    <option value="line-chart">Copmpetitive Analysis</option>
+                </select>
+        </div>  -->
+        
+<div class="row">
+  <div class="col"><canvas id="myChart"></canvas></div>
+  <div class="col"><canvas id="myChart2" ></canvas></div>
+  <div class="w-100"></div>
+  <div class="col"><canvas id="polar-chart" ></canvas></div>
+  <div class="col"><canvas id="line-chart" ></canvas></div>
+</div>
   <script>
-
         // Global Options
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.defaultFontColor = '#777';
+
 var ctx = document.getElementById('myChart2');
 
 var sku = new Chart(ctx, {

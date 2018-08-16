@@ -10,15 +10,17 @@
 </head>
 <body>
   <div class="container">
-    <canvas id="myChart"></canvas>
-    <canvas id="myChart2"></canvas>
-    <canvas id="polar-chart"></canvas>
-  </div>
-
+    <div>
+        <canvas id="myChart"></canvas>
+        <canvas id="myChart2"></canvas>
+    </div>
+    <div>
+        <canvas id="polar-chart"></canvas>
+        <canvas id="line-chart"></canvas>
+    </div>
   <script>
 
         // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.defaultFontColor = '#777';
 var ctx = document.getElementById('myChart2');
@@ -122,9 +124,40 @@ var sku = new Chart(ctx, {
     options: {
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050'
+        text: 'Boxes Sold Per State',
+        fontSize:25
       }
     }
+});
+    new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: ['February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [{ 
+        data: [107,111,133,221,783,2478],
+        label: "Competitor 1",
+        borderColor: "#3e95cd",
+        fill: false
+      }, { 
+        data: [635,809,947,1402,3700,5267],
+        label: "Patagonia",
+        borderColor: "#8e5ea2",
+        fill: false
+      }, { 
+        data: [203,276,408,547,675,734],
+        label: "Competitor 2",
+        borderColor: "#3cba9f",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Boxes Sold',
+      fontSize:25
+    }
+  }
 });
 
   </script>

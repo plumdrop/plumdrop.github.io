@@ -7,7 +7,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       if(user.email === "manager@patagonia.com") {
         window.location.replace("sample.html");
       } else {
-         window.location.replace("event.html");
+         window.location.replace("untitled.html");
       }
   } else {
     console.log("invalid login");
